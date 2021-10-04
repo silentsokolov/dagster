@@ -1,4 +1,4 @@
-from dagster import graph, op, resource
+from dagster import job, op, resource
 
 
 @resource
@@ -11,9 +11,6 @@ def do_something():
     ...
 
 
-@graph
+@job(resource_defs={"external_service": external_service})
 def do_it_all():
     do_something()
-
-
-do_it_all_job = do_it_all.to_job(resource_defs={"external_service": external_service})
