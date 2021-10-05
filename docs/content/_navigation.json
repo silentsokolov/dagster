@@ -417,28 +417,36 @@
         "title": "Core",
         "children": [
           {
-            "title": "Solids",
-            "path": "/_apidocs/solids"
+            "title": "Jobs",
+            "path": "/_apidocs/jobs"
           },
           {
-            "title": "Pipelines",
-            "path": "/_apidocs/pipeline"
+            "title": "Ops",
+            "path": "/_apidocs/ops"
           },
           {
-            "title": "Modes & Resources",
-            "path": "/_apidocs/modes-resources"
+            "title": "Graphs",
+            "path": "/_apidocs/graphs"
           },
           {
-            "title": "Presets",
-            "path": "/_apidocs/presets"
+            "title": "Resources",
+            "path": "/_apidocs/resources"
+          },
+          {
+            "title": "Schedules and Sensors",
+            "path": "/_apidocs/schedules-sensors"
+          },
+          {
+            "title": "Repositories",
+            "path": "/_apidocs/repositories"
           },
           {
             "title": "Loggers",
             "path": "/_apidocs/loggers"
           },
           {
-            "title": "Repositories",
-            "path": "/_apidocs/repositories"
+            "title": "Presets",
+            "path": "/_apidocs/presets"
           },
           {
             "title": "Config",
@@ -449,16 +457,12 @@
             "path": "/_apidocs/types"
           },
           {
-            "title": "Dagster CLI",
-            "path": "/_apidocs/cli"
-          },
-          {
-            "title": "Schedules and Sensors",
-            "path": "/_apidocs/schedules-sensors"
-          },
-          {
             "title": "Partitions",
             "path": "/_apidocs/partitions"
+          },
+          {
+            "title": "Dagster CLI",
+            "path": "/_apidocs/cli"
           },
           {
             "title": "Errors",
@@ -481,6 +485,7 @@
             "path": "/_apidocs/dynamic"
           },
           {
+<<<<<<< HEAD
             "title": "Experimental Core APIs",
             "path": "/_apidocs/experimental"
           },
@@ -489,6 +494,8 @@
             "path": "/_apidocs/assets"
           },
           {
+=======
+>>>>>>> f1ebd7f7c... sigh
             "title": "Versioning & Memoization",
             "path": "/_apidocs/memoization"
           },
@@ -499,6 +506,23 @@
           {
             "title": "Internals",
             "path": "/_apidocs/internals"
+          }
+        ]
+      },
+      {
+        "title": "Legacy",
+        "children": [
+          {
+            "title": "Solids",
+            "path": "/_apidocs/solids"
+          },
+          {
+            "title": "Pipelines",
+            "path": "/_apidocs/pipeline"
+          },
+          {
+            "title": "Modes",
+            "path": "/_apidocs/modes"
           }
         ]
       },

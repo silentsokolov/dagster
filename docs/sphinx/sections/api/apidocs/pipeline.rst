@@ -1,7 +1,10 @@
 .. currentmodule:: dagster
 
-Pipelines
-=========
+[Legacy] Pipelines
+==================
+
+As of Dagster 0.13.0, we recommend using `Jobs` as an alternative to `Pipelines`.
+
 
 Pipeline definitions
 --------------------

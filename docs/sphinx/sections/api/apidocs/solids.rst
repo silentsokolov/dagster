@@ -1,9 +1,10 @@
 .. currentmodule:: dagster
 
-Solids
-======
+[Legacy] Solids
+===============
 
-The foundational unit of computation in Dagster.
+As of Dagster 0.13.0, we recommend `Ops` as an alternative to `Solids`. They can generally be used
+interchangeably.
 
 -----
 

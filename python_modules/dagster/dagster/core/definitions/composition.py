@@ -25,7 +25,6 @@ from dagster.core.errors import (
     DagsterInvariantViolationError,
 )
 from dagster.utils import frozentags
-from dagster.utils.backcompat import experimental
 
 from .config import ConfigMapping
 from .decorators.solid import (
@@ -545,7 +544,6 @@ class PendingNodeInvocation:
             retry_policy=retry_policy,
         )
 
-    @experimental
     def to_job(
         self,
         name: Optional[str] = None,
