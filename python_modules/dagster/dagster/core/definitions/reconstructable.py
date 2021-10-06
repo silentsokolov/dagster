@@ -283,7 +283,7 @@ def reconstructable(target):
         raise DagsterInvariantViolationError(
             "Reconstructable target can not be a lambda. Use a function or "
             "decorated function defined at module scope instead, or use "
-            "build_reconstructable_pipeline."
+            "build_reconstructable_target."
         )
 
     if seven.qualname_differs(target):
@@ -309,10 +309,10 @@ def reconstructable(target):
     python_file = get_python_file_from_target(target)
     if not python_file:
         raise DagsterInvariantViolationError(
-            "reconstructable() can not reconstruct pipelines defined in interactive environments "
+            "reconstructable() can not reconstruct targets defined in interactive environments "
             "like <stdin>, IPython, or Jupyter notebooks. "
             "Use a pipeline defined in a module or file instead, or "
-            "use build_reconstructable_pipeline."
+            "use build_reconstructable_target."
         )
 
     pointer = FileCodePointer(
@@ -323,7 +323,7 @@ def reconstructable(target):
 
 
 @experimental
-def build_reconstructable_pipeline(
+def build_reconstructable_target(
     reconstructor_module_name,
     reconstructor_function_name,
     reconstructable_args=None,
@@ -418,6 +418,9 @@ def build_reconstructable_pipeline(
     )
 
 
+build_reconstructable_pipeline = build_reconstructable_target
+
+
 def bootstrap_standalone_recon_pipeline(pointer):
     # So this actually straps the the pipeline for the sole
     # purpose of getting the pipeline name. If we changed ReconstructablePipeline
@@ -437,7 +440,7 @@ def _check_is_loadable(definition):
     if not isinstance(definition, (PipelineDefinition, RepositoryDefinition, GraphDefinition)):
         raise DagsterInvariantViolationError(
             (
-                "Loadable attributes must be either a PipelineDefinition, GraphDefinition, or a "
+                "Loadable attributes must be either a JobDefinition, GraphDefinition, PipelineDefinition, or a "
                 "RepositoryDefinition. Got {definition}."
             ).format(definition=repr(definition))
         )
@@ -491,7 +494,7 @@ def pipeline_def_from_pointer(pointer):
         return target
 
     raise DagsterInvariantViolationError(
-        "CodePointer ({str}) must resolve to a PipelineDefinition. "
+        "CodePointer ({str}) must resolve to a JobDefinition (or PipelineDefinition for legacy code). "
         "Received a {type}".format(str=pointer.describe(), type=type(target))
     )
 
@@ -520,7 +523,7 @@ def repository_def_from_pointer(pointer):
     if not repo_def:
         raise DagsterInvariantViolationError(
             "CodePointer ({str}) must resolve to a "
-            "RepositoryDefinition or a PipelineDefinition. "
+            "RepositoryDefinition, JobDefinition, or PipelineDefinition. "
             "Received a {type}".format(str=pointer.describe(), type=type(target))
         )
     return repo_def
