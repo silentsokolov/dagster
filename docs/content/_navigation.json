@@ -485,7 +485,6 @@
             "path": "/_apidocs/dynamic"
           },
           {
-<<<<<<< HEAD
             "title": "Experimental Core APIs",
             "path": "/_apidocs/experimental"
           },
@@ -494,8 +493,6 @@
             "path": "/_apidocs/assets"
           },
           {
-=======
->>>>>>> f1ebd7f7c... sigh
             "title": "Versioning & Memoization",
             "path": "/_apidocs/memoization"
           },
